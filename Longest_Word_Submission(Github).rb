@@ -1,13 +1,17 @@
 # Scott Thomas, Interview problem, February 2013
 # 
+# PROBLEM: Find the longest word in the wordlist (wordlist.txt) that is composed of other words in the list.
+# 
 # For this problem, I began by reading in the word file and assigning each word as a key in a hash.
 # I thought that a hash would be best because of its very efficient selection time O(1) to check
-# if a certain word was in the wordlist.  I iterated over each character of each word in the word list, and 
-# appended the found words to an array which served as the value of the hash whose key was the word.  At the
-# end of each word, I would check to see if the temporary snippet string was empty.  The snippet string would only be empty
-# if it was found as a word from the list and added to the array of words found for that word.  If a clean combination
-# was not found, I would go back and look for longer initial words. Every hash would have a minimum of one match from the word list (the word itself)
-# or a clean combination of words (no unmatched characters left over), but only clean combinations would be added to the word_combo_list.
+# if a certain word was in the wordlist (assuming no collisions).  I iterated over each character of each 
+# word in the word list, and appended the found words to an array which served as the value of the hash 
+# whose key was the word.  At the end of each word, I would check to see if the temporary snippet string 
+# was empty.  The snippet string would only be empty if it was found as a word from the list and added 
+# to the array of words found for that word.  If a clean combination was not found, I would go back 
+# and look for longer initial words. Every hash would have a minimum of one match from the word list
+# (the word itself) or a clean combination of words (no unmatched characters left over), but only 
+# clean combinations would be added to the word_combo_list.
 #
 # Here are some examples of how this solution is an improvement over a more naive solution that merely finds only the first word. within a word
 # 
