@@ -18,33 +18,33 @@ clean combinations would be added to the word_combo_list.
 
 Here are some examples of how this solution is an improvement over a more naive solution that merely finds only the first word. within a word
 
-WRONG: word_hash["catchall"] => ["cat"] + "chall"
+    WRONG: word_hash["catchall"] => ["cat"] + "chall"
  
- 		vs.
+vs.
  
-CORRECT: word_hash["catchall"] => ["catch","all"]
+    CORRECT: word_hash["catchall"] => ["catch","all"]
 
 The proper solution requires a recursive function that calls itself and look for longer prior words. See below for how it works:
  
 :: CALL check_for_word() FUNCTION ::
  
-word_hash["catchall"] => "c" + "atchall"
-word_hash["catchall"] => "ca" + "tchall"
-word_hash["catchall"] => ["cat"] + "chall"
-word_hash["catchall"] => ["cat"] + "c" + "hall"
-word_hash["catchall"] => ["cat"] + "ch" + "all"
-word_hash["catchall"] => ["cat"] + "cha" + "ll"
-word_hash["catchall"] => ["cat"] + "chal" + "l"
-word_hash["catchall"] => ["cat"] + "chall"
+    word_hash["catchall"] => "c" + "atchall"
+    word_hash["catchall"] => "ca" + "tchall"
+    word_hash["catchall"] => ["cat"] + "chall"
+    word_hash["catchall"] => ["cat"] + "c" + "hall"
+    word_hash["catchall"] => ["cat"] + "ch" + "all"
+    word_hash["catchall"] => ["cat"] + "cha" + "ll"
+    word_hash["catchall"] => ["cat"] + "chal" + "l"
+    word_hash["catchall"] => ["cat"] + "chall"
 
 :: NO WORD FOUND ::
 :: CALL check_for_word() FUNCTION again(popping the last array element off of the stack & passing in the index of the last found word) ::
  
-word_hash["catchall"] => "catc" + "hall"
-word_hash["catchall"] => ["catch"] + "all"
-word_hash["catchall"] => ["catch"] + "a" + "ll"
-word_hash["catchall"] => ["catch"] + "al" + "l"
-word_hash["catchall"] => ["catch","all"]
+    word_hash["catchall"] => "catc" + "hall"
+    word_hash["catchall"] => ["catch"] + "all"
+    word_hash["catchall"] => ["catch"] + "a" + "ll"
+    word_hash["catchall"] => ["catch"] + "al" + "l"
+    word_hash["catchall"] => ["catch","all"]
  
 :: BOTH WORDS FOUND ::
 
