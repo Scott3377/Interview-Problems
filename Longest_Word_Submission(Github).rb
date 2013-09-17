@@ -1,6 +1,11 @@
 # CONSTANT
 WORD_FILE = "wordlist.txt"
 
+# Error checking if wordlist.txt not included
+if !File.exists?(WORD_FILE)
+	abort("...Program aborted: Please place 'wordlist.txt' file in same folder as program.")
+end
+
 word_combo_list = []							# Holds list of concatenated words
 $word_hash = Hash.new()							# Hash containing words in list as key, array of inner words as values
 $key_length = 0								# Cache variable for key length
